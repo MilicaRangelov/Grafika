@@ -1,26 +1,26 @@
 
-// Zadatak.cpp : Defines the class behaviors for the application.
+// IND_17905.cpp : Defines the class behaviors for the application.
 //
 
 #include "pch.h"
 #include "framework.h"
 #include "afxwinappex.h"
 #include "afxdialogex.h"
-#include "Zadatak.h"
+#include "IND_17905.h"
 #include "MainFrm.h"
 
-#include "ZadatakDoc.h"
-#include "ZadatakView.h"
+#include "IND_17905Doc.h"
+#include "IND_17905View.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
 
 
-// CZadatakApp
+// CIND17905App
 
-BEGIN_MESSAGE_MAP(CZadatakApp, CWinAppEx)
-	ON_COMMAND(ID_APP_ABOUT, &CZadatakApp::OnAppAbout)
+BEGIN_MESSAGE_MAP(CIND17905App, CWinAppEx)
+	ON_COMMAND(ID_APP_ABOUT, &CIND17905App::OnAppAbout)
 	// Standard file based document commands
 	ON_COMMAND(ID_FILE_NEW, &CWinAppEx::OnFileNew)
 	ON_COMMAND(ID_FILE_OPEN, &CWinAppEx::OnFileOpen)
@@ -29,9 +29,9 @@ BEGIN_MESSAGE_MAP(CZadatakApp, CWinAppEx)
 END_MESSAGE_MAP()
 
 
-// CZadatakApp construction
+// CIND17905App construction
 
-CZadatakApp::CZadatakApp() noexcept
+CIND17905App::CIND17905App() noexcept
 {
 	m_bHiColorIcons = TRUE;
 
@@ -47,20 +47,20 @@ CZadatakApp::CZadatakApp() noexcept
 
 	// TODO: replace application ID string below with unique ID string; recommended
 	// format for string is CompanyName.ProductName.SubProduct.VersionInformation
-	SetAppID(_T("Zadatak.AppID.NoVersion"));
+	SetAppID(_T("IND17905.AppID.NoVersion"));
 
 	// TODO: add construction code here,
 	// Place all significant initialization in InitInstance
 }
 
-// The one and only CZadatakApp object
+// The one and only CIND17905App object
 
-CZadatakApp theApp;
+CIND17905App theApp;
 
 
-// CZadatakApp initialization
+// CIND17905App initialization
 
-BOOL CZadatakApp::InitInstance()
+BOOL CIND17905App::InitInstance()
 {
 	// InitCommonControlsEx() is required on Windows XP if an application
 	// manifest specifies use of ComCtl32.dll version 6 or later to enable
@@ -115,9 +115,9 @@ BOOL CZadatakApp::InitInstance()
 	CSingleDocTemplate* pDocTemplate;
 	pDocTemplate = new CSingleDocTemplate(
 		IDR_MAINFRAME,
-		RUNTIME_CLASS(CZadatakDoc),
+		RUNTIME_CLASS(CIND17905Doc),
 		RUNTIME_CLASS(CMainFrame),       // main SDI frame window
-		RUNTIME_CLASS(CZadatakView));
+		RUNTIME_CLASS(CIND17905View));
 	if (!pDocTemplate)
 		return FALSE;
 	AddDocTemplate(pDocTemplate);
@@ -140,7 +140,7 @@ BOOL CZadatakApp::InitInstance()
 	return TRUE;
 }
 
-int CZadatakApp::ExitInstance()
+int CIND17905App::ExitInstance()
 {
 	//TODO: handle additional resources you may have added
 	AfxOleTerm(FALSE);
@@ -148,7 +148,7 @@ int CZadatakApp::ExitInstance()
 	return CWinAppEx::ExitInstance();
 }
 
-// CZadatakApp message handlers
+// CIND17905App message handlers
 
 
 // CAboutDlg dialog used for App About
@@ -184,15 +184,15 @@ BEGIN_MESSAGE_MAP(CAboutDlg, CDialogEx)
 END_MESSAGE_MAP()
 
 // App command to run the dialog
-void CZadatakApp::OnAppAbout()
+void CIND17905App::OnAppAbout()
 {
 	CAboutDlg aboutDlg;
 	aboutDlg.DoModal();
 }
 
-// CZadatakApp customization load/save methods
+// CIND17905App customization load/save methods
 
-void CZadatakApp::PreLoadState()
+void CIND17905App::PreLoadState()
 {
 	BOOL bNameValid;
 	CString strName;
@@ -201,15 +201,15 @@ void CZadatakApp::PreLoadState()
 	GetContextMenuManager()->AddMenu(strName, IDR_POPUP_EDIT);
 }
 
-void CZadatakApp::LoadCustomState()
+void CIND17905App::LoadCustomState()
 {
 }
 
-void CZadatakApp::SaveCustomState()
+void CIND17905App::SaveCustomState()
 {
 }
 
-// CZadatakApp message handlers
+// CIND17905App message handlers
 
 
 

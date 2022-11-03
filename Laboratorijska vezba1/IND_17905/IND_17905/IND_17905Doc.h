@@ -1,16 +1,16 @@
 
-// ZadatakDoc.h : interface of the CZadatakDoc class
+// IND_17905Doc.h : interface of the CIND17905Doc class
 //
 
 
 #pragma once
 
 
-class CZadatakDoc : public CDocument
+class CIND17905Doc : public CDocument
 {
 protected: // create from serialization only
-	CZadatakDoc() noexcept;
-	DECLARE_DYNCREATE(CZadatakDoc)
+	CIND17905Doc() noexcept;
+	DECLARE_DYNCREATE(CIND17905Doc)
 
 // Attributes
 public:
@@ -29,7 +29,7 @@ public:
 
 // Implementation
 public:
-	virtual ~CZadatakDoc();
+	virtual ~CIND17905Doc();
 #ifdef _DEBUG
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;

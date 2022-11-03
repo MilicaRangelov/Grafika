@@ -1,5 +1,5 @@
 
-// ZadatakDoc.cpp : implementation of the CZadatakDoc class
+// IND_17905Doc.cpp : implementation of the CIND17905Doc class
 //
 
 #include "pch.h"
@@ -7,10 +7,10 @@
 // SHARED_HANDLERS can be defined in an ATL project implementing preview, thumbnail
 // and search filter handlers and allows sharing of document code with that project.
 #ifndef SHARED_HANDLERS
-#include "Zadatak.h"
+#include "IND_17905.h"
 #endif
 
-#include "ZadatakDoc.h"
+#include "IND_17905Doc.h"
 
 #include <propkey.h>
 
@@ -18,27 +18,27 @@
 #define new DEBUG_NEW
 #endif
 
-// CZadatakDoc
+// CIND17905Doc
 
-IMPLEMENT_DYNCREATE(CZadatakDoc, CDocument)
+IMPLEMENT_DYNCREATE(CIND17905Doc, CDocument)
 
-BEGIN_MESSAGE_MAP(CZadatakDoc, CDocument)
+BEGIN_MESSAGE_MAP(CIND17905Doc, CDocument)
 END_MESSAGE_MAP()
 
 
-// CZadatakDoc construction/destruction
+// CIND17905Doc construction/destruction
 
-CZadatakDoc::CZadatakDoc() noexcept
+CIND17905Doc::CIND17905Doc() noexcept
 {
 	// TODO: add one-time construction code here
 
 }
 
-CZadatakDoc::~CZadatakDoc()
+CIND17905Doc::~CIND17905Doc()
 {
 }
 
-BOOL CZadatakDoc::OnNewDocument()
+BOOL CIND17905Doc::OnNewDocument()
 {
 	if (!CDocument::OnNewDocument())
 		return FALSE;
@@ -52,9 +52,9 @@ BOOL CZadatakDoc::OnNewDocument()
 
 
 
-// CZadatakDoc serialization
+// CIND17905Doc serialization
 
-void CZadatakDoc::Serialize(CArchive& ar)
+void CIND17905Doc::Serialize(CArchive& ar)
 {
 	if (ar.IsStoring())
 	{
@@ -69,7 +69,7 @@ void CZadatakDoc::Serialize(CArchive& ar)
 #ifdef SHARED_HANDLERS
 
 // Support for thumbnails
-void CZadatakDoc::OnDrawThumbnail(CDC& dc, LPRECT lprcBounds)
+void CIND17905Doc::OnDrawThumbnail(CDC& dc, LPRECT lprcBounds)
 {
 	// Modify this code to draw the document's data
 	dc.FillSolidRect(lprcBounds, RGB(255, 255, 255));
@@ -90,7 +90,7 @@ void CZadatakDoc::OnDrawThumbnail(CDC& dc, LPRECT lprcBounds)
 }
 
 // Support for Search Handlers
-void CZadatakDoc::InitializeSearchContent()
+void CIND17905Doc::InitializeSearchContent()
 {
 	CString strSearchContent;
 	// Set search contents from document's data.
@@ -100,7 +100,7 @@ void CZadatakDoc::InitializeSearchContent()
 	SetSearchContent(strSearchContent);
 }
 
-void CZadatakDoc::SetSearchContent(const CString& value)
+void CIND17905Doc::SetSearchContent(const CString& value)
 {
 	if (value.IsEmpty())
 	{
@@ -120,19 +120,19 @@ void CZadatakDoc::SetSearchContent(const CString& value)
 
 #endif // SHARED_HANDLERS
 
-// CZadatakDoc diagnostics
+// CIND17905Doc diagnostics
 
 #ifdef _DEBUG
-void CZadatakDoc::AssertValid() const
+void CIND17905Doc::AssertValid() const
 {
 	CDocument::AssertValid();
 }
 
-void CZadatakDoc::Dump(CDumpContext& dc) const
+void CIND17905Doc::Dump(CDumpContext& dc) const
 {
 	CDocument::Dump(dc);
 }
 #endif //_DEBUG
 
 
-// CZadatakDoc commands
+// CIND17905Doc commands

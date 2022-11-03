@@ -20,9 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{6DD0AE68-CCEC-4AA2-B9B8-8EA2E0966160}</ProjectGuid>
+    <ProjectGuid>{40766587-5C9C-4AE2-829A-504A95AA4B0A}</ProjectGuid>
     <Keyword>MFCProj</Keyword>
-    <RootNamespace>Zadatak</RootNamespace>
+    <RootNamespace>IND17905</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -184,15 +184,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="framework.h" />
+    <ClInclude Include="IND_17905.h" />
+    <ClInclude Include="IND_17905Doc.h" />
+    <ClInclude Include="IND_17905View.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="targetver.h" />
-    <ClInclude Include="Zadatak.h" />
-    <ClInclude Include="ZadatakDoc.h" />
-    <ClInclude Include="ZadatakView.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="IND_17905.cpp" />
+    <ClCompile Include="IND_17905Doc.cpp" />
+    <ClCompile Include="IND_17905View.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -200,22 +203,19 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="Zadatak.cpp" />
-    <ClCompile Include="ZadatakDoc.cpp" />
-    <ClCompile Include="ZadatakView.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="Zadatak.rc" />
+    <ResourceCompile Include="IND17905.rc" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="res\IND_17905.ico" />
+    <Image Include="res\IND_17905Doc.ico" />
     <Image Include="res\Toolbar.bmp" />
     <Image Include="res\Toolbar256.bmp" />
     <Image Include="res\userimages.bmp" />
-    <Image Include="res\Zadatak.ico" />
-    <Image Include="res\ZadatakDoc.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\Zadatak.rc2" />
+    <None Include="res\IND17905.rc2" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

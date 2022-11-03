@@ -1,5 +1,5 @@
 
-// Zadatak.h : main header file for the Zadatak application
+// IND_17905.h : main header file for the IND_17905 application
 //
 #pragma once
 
@@ -10,14 +10,14 @@
 #include "resource.h"       // main symbols
 
 
-// CZadatakApp:
-// See Zadatak.cpp for the implementation of this class
+// CIND17905App:
+// See IND_17905.cpp for the implementation of this class
 //
 
-class CZadatakApp : public CWinAppEx
+class CIND17905App : public CWinAppEx
 {
 public:
-	CZadatakApp() noexcept;
+	CIND17905App() noexcept;
 
 
 // Overrides
@@ -36,4 +36,4 @@ public:
 	DECLARE_MESSAGE_MAP()
 };
 
-extern CZadatakApp theApp;
+extern CIND17905App theApp;

@@ -1,5 +1,5 @@
 
-// ZadatakView.cpp : implementation of the CZadatakView class
+// IND_17905View.cpp : implementation of the CIND17905View class
 //
 
 #include "pch.h"
@@ -7,37 +7,35 @@
 // SHARED_HANDLERS can be defined in an ATL project implementing preview, thumbnail
 // and search filter handlers and allows sharing of document code with that project.
 #ifndef SHARED_HANDLERS
-#include "Zadatak.h"
+#include "IND_17905.h"
 #endif
 
-#include "ZadatakDoc.h"
-#include "ZadatakView.h"
+#include "IND_17905Doc.h"
+#include "IND_17905View.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
 
 
-// CZadatakView
+// CIND17905View
 
-IMPLEMENT_DYNCREATE(CZadatakView, CView)
+IMPLEMENT_DYNCREATE(CIND17905View, CView)
 
-BEGIN_MESSAGE_MAP(CZadatakView, CView)
+BEGIN_MESSAGE_MAP(CIND17905View, CView)
 	// Standard printing commands
 	ON_COMMAND(ID_FILE_PRINT, &CView::OnFilePrint)
 	ON_COMMAND(ID_FILE_PRINT_DIRECT, &CView::OnFilePrint)
-	ON_COMMAND(ID_FILE_PRINT_PREVIEW, &CZadatakView::OnFilePrintPreview)
+	ON_COMMAND(ID_FILE_PRINT_PREVIEW, &CIND17905View::OnFilePrintPreview)
 	ON_WM_CONTEXTMENU()
 	ON_WM_RBUTTONUP()
 	ON_WM_KEYDOWN()
 END_MESSAGE_MAP()
 
+// CIND17905View construction/destruction
 
-// private methods
-
-
-void DrawTrianglePolygon(POINT p1, POINT p2, POINT p3, CDC* pDC) {
-
+void CIND17905View::DrawTrianglePolygon(POINT p1, POINT p2, POINT p3, CDC* pDC)
+{
 	POINT* points = new POINT[3];
 	points[0] = p1;
 	points[1] = p2;
@@ -46,18 +44,17 @@ void DrawTrianglePolygon(POINT p1, POINT p2, POINT p3, CDC* pDC) {
 	pDC->Polygon(points, 3);
 }
 
-void DrawSolidTriangle(POINT p1, POINT p2, POINT p3, COLORREF color, CDC* pDC) {
-
+void CIND17905View::DrawSolidTriangle(POINT p1, POINT p2, POINT p3, COLORREF color, CDC* pDC)
+{
 	CBrush* brush = new CBrush(color);
 	CBrush* oldBrush = pDC->SelectObject(brush);
 	DrawTrianglePolygon(p1, p2, p3, pDC);
 	pDC->SelectObject(oldBrush);
 	delete brush;
-
 }
 
-void DrawHatchTriangle(POINT p1, POINT p2, POINT p3, COLORREF bk, int pattern, COLORREF color, CDC* pDC) {
-
+void CIND17905View::DrawHatchTriangle(POINT p1, POINT p2, POINT p3, COLORREF bk, int pattern, COLORREF color, CDC* pDC)
+{
 	pDC->SetBkColor(bk);
 	CBrush* brush = new CBrush(pattern, color);
 	CBrush* oldBrush = pDC->SelectObject(brush);
@@ -65,8 +62,9 @@ void DrawHatchTriangle(POINT p1, POINT p2, POINT p3, COLORREF bk, int pattern, C
 	pDC->SelectObject(oldBrush);
 	delete brush;
 }
-void DrawQuadricPolygon(POINT p1, POINT p2, POINT p3, POINT p4, COLORREF color, CDC* pDC) {
 
+void CIND17905View::DrawQuadricPolygon(POINT p1, POINT p2, POINT p3, POINT p4, COLORREF color, CDC* pDC)
+{
 	CBrush* brush = new CBrush(color);
 	CBrush* oldBrush = pDC->SelectObject(brush);
 
@@ -81,8 +79,8 @@ void DrawQuadricPolygon(POINT p1, POINT p2, POINT p3, POINT p4, COLORREF color, 
 	delete brush;
 }
 
-void DrawRegularPolygon(CDC* pDC, int cx, int cy, int r, int n, float rotAngle) {
-
+void CIND17905View::DrawRegularPolygon(CDC* pDC, int cx, int cy, int r, int n, float rotAngle)
+{
 	CBrush* old = (CBrush*)pDC->SelectStockObject(HOLLOW_BRUSH);
 	float rot = 2 * 3.1415926535 / n;
 	POINT* points = new POINT[n];
@@ -96,8 +94,8 @@ void DrawRegularPolygon(CDC* pDC, int cx, int cy, int r, int n, float rotAngle) 
 	pDC->SelectObject(old);
 }
 
-void DrawGrid(CDC* pDC) {
-
+void CIND17905View::DrawGrid(CDC* pDC)
+{
 	CPen* pen = new CPen(PS_SOLID, 1, RGB(255, 255, 255));
 	CPen* old = pDC->SelectObject(pen);
 
@@ -111,21 +109,17 @@ void DrawGrid(CDC* pDC) {
 	delete pen;
 }
 
-
-// CZadatakView construction/destruction
-
-CZadatakView::CZadatakView() noexcept
+CIND17905View::CIND17905View() noexcept
 {
 	// TODO: add construction code here
 	this->keyHit = false;
-
 }
 
-CZadatakView::~CZadatakView()
+CIND17905View::~CIND17905View()
 {
 }
 
-BOOL CZadatakView::PreCreateWindow(CREATESTRUCT& cs)
+BOOL CIND17905View::PreCreateWindow(CREATESTRUCT& cs)
 {
 	// TODO: Modify the Window class or styles here by modifying
 	//  the CREATESTRUCT cs
@@ -133,11 +127,11 @@ BOOL CZadatakView::PreCreateWindow(CREATESTRUCT& cs)
 	return CView::PreCreateWindow(cs);
 }
 
-// CZadatakView drawing
+// CIND17905View drawing
 
-void CZadatakView::OnDraw(CDC* pDC)
+void CIND17905View::OnDraw(CDC* pDC)
 {
-	CZadatakDoc* pDoc = GetDocument();
+	CIND17905Doc* pDoc = GetDocument();
 	ASSERT_VALID(pDoc);
 	if (!pDoc)
 		return;
@@ -145,7 +139,7 @@ void CZadatakView::OnDraw(CDC* pDC)
 	CBrush* bk = new CBrush(RGB(200, 200, 200));
 	CRect rect(0, 0, 500, 500);
 	pDC->FillRect(rect, bk);
-	
+
 	CPen* pen = new CPen(PS_SOLID, 5, RGB(0, 0, 255));
 	CPen* oldPen = pDC->SelectObject(pen);
 
@@ -153,9 +147,9 @@ void CZadatakView::OnDraw(CDC* pDC)
 	DrawHatchTriangle({ 25, 8 * 25 }, { 6 * 25,(long)(13.3 * 25) }, { (6 * 25), 4 * 25 }, RGB(255, 255, 255), HS_VERTICAL, RGB(0, 0, 255), pDC);
 	DrawSolidTriangle({ (6 * 25), 4 * 25 }, { 12 * 25,4 * 25 }, { 6 * 25,(long)(10.8 * 25) }, RGB(139, 81, 168), pDC);
 	DrawSolidTriangle({ 12 * 25, 4 * 25 }, { 12 * 25,(long)(8.8 * 25) }, { (long)(7.8 * 25), (long)(8.8 * 25) }, RGB(250, 147, 248), pDC);
-	DrawSolidTriangle({ (long)(15.5 * 25), (long)(7.2 * 25) }, { (long)(15.5 * 25), (long)(4 * 25) }, { (long)(19 * 25), (long)(7.2 * 25) },RGB(245, 232, 51), pDC);
+	DrawSolidTriangle({ (long)(15.5 * 25), (long)(7.2 * 25) }, { (long)(15.5 * 25), (long)(4 * 25) }, { (long)(19 * 25), (long)(7.2 * 25) }, RGB(245, 232, 51), pDC);
 	DrawQuadricPolygon({ 25 * 9, (long)(25 * 8.8) }, { 25 * 12, (long)(25 * 8.8) }, { 25 * 15 , 25 * 12 }, { 25 * 12, 25 * 12 }, RGB(255, 156, 43), pDC);
-	DrawQuadricPolygon({ 25 * 12, (long)(25 * 4) }, { (long)(15.5*25), (long)(25 * 4) }, { (long)(15.5 * 25), (long)(7.2 * 25) },{ 25 * 12 , (long)(7.2 * 25) }, RGB(255, 0,0), pDC);
+	DrawQuadricPolygon({ 25 * 12, (long)(25 * 4) }, { (long)(15.5 * 25), (long)(25 * 4) }, { (long)(15.5 * 25), (long)(7.2 * 25) }, { 25 * 12 , (long)(7.2 * 25) }, RGB(255, 0, 0), pDC);
 
 	pDC->SelectObject(oldPen);
 	delete pen;
@@ -168,51 +162,50 @@ void CZadatakView::OnDraw(CDC* pDC)
 	DrawRegularPolygon(pDC, 25 * 11 - 10, 25 * 8 - 12, 12, 8, 0);
 	DrawRegularPolygon(pDC, 25 * 17 - 15, 25 * 7 - 20, 10, 4, 0);
 	DrawRegularPolygon(pDC, 25 * 6, 25 * 15, 12, 5, 30);
-	
+
 	pDC->SelectObject(oldPen);
 	delete pen;
 
 	if (keyHit) {
 		DrawGrid(pDC);
 	}
-
-
+	// TODO: add draw code for native data here
 }
 
 
-// CZadatakView printing
+// CIND17905View printing
 
 
-void CZadatakView::OnFilePrintPreview()
+void CIND17905View::OnFilePrintPreview()
 {
 #ifndef SHARED_HANDLERS
 	AFXPrintPreview(this);
 #endif
 }
 
-BOOL CZadatakView::OnPreparePrinting(CPrintInfo* pInfo)
+BOOL CIND17905View::OnPreparePrinting(CPrintInfo* pInfo)
 {
 	// default preparation
 	return DoPreparePrinting(pInfo);
 }
 
-void CZadatakView::OnBeginPrinting(CDC* /*pDC*/, CPrintInfo* /*pInfo*/)
+void CIND17905View::OnBeginPrinting(CDC* /*pDC*/, CPrintInfo* /*pInfo*/)
 {
 	// TODO: add extra initialization before printing
 }
 
-void CZadatakView::OnEndPrinting(CDC* /*pDC*/, CPrintInfo* /*pInfo*/)
+void CIND17905View::OnEndPrinting(CDC* /*pDC*/, CPrintInfo* /*pInfo*/)
 {
 	// TODO: add cleanup after printing
 }
 
-void CZadatakView::OnRButtonUp(UINT /* nFlags */, CPoint point)
+void CIND17905View::OnRButtonUp(UINT /* nFlags */, CPoint point)
 {
 	ClientToScreen(&point);
 	OnContextMenu(this, point);
 }
 
-void CZadatakView::OnContextMenu(CWnd* /* pWnd */, CPoint point)
+void CIND17905View::OnContextMenu(CWnd* /* pWnd */, CPoint point)
 {
 #ifndef SHARED_HANDLERS
 	theApp.GetContextMenuManager()->ShowPopupMenu(IDR_POPUP_EDIT, point.x, point.y, this, TRUE);
@@ -220,31 +213,31 @@ void CZadatakView::OnContextMenu(CWnd* /* pWnd */, CPoint point)
 }
 
 
-// CZadatakView diagnostics
+// CIND17905View diagnostics
 
 #ifdef _DEBUG
-void CZadatakView::AssertValid() const
+void CIND17905View::AssertValid() const
 {
 	CView::AssertValid();
 }
 
-void CZadatakView::Dump(CDumpContext& dc) const
+void CIND17905View::Dump(CDumpContext& dc) const
 {
 	CView::Dump(dc);
 }
 
-CZadatakDoc* CZadatakView::GetDocument() const // non-debug version is inline
+CIND17905Doc* CIND17905View::GetDocument() const // non-debug version is inline
 {
-	ASSERT(m_pDocument->IsKindOf(RUNTIME_CLASS(CZadatakDoc)));
-	return (CZadatakDoc*)m_pDocument;
+	ASSERT(m_pDocument->IsKindOf(RUNTIME_CLASS(CIND17905Doc)));
+	return (CIND17905Doc*)m_pDocument;
 }
 #endif //_DEBUG
 
 
-// CZadatakView message handlers
+// CIND17905View message handlers
 
 
-void CZadatakView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
+void CIND17905View::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 {
 	// TODO: Add your message handler code here and/or call default
 	if (nChar == 'D') {

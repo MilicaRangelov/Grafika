@@ -4,7 +4,7 @@
 
 #include "pch.h"
 #include "framework.h"
-#include "Zadatak.h"
+#include "IND_17905.h"
 
 #include "MainFrm.h"
 

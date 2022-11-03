@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by Zadatak.rc
+// Used by IND17905.rc
 //
 #define IDD_ABOUTBOX				100
 #define IDP_OLE_INIT_FAILED			100
@@ -14,7 +14,7 @@
 #define ID_VIEW_CUSTOMIZE			126
 #define IDR_MAINFRAME				128
 #define IDR_MAINFRAME_256			129
-#define IDR_ZadatakTYPE				130
+#define IDR_IND17905TYPE				130
 #define IDS_EDIT_MENU				306
 
 // Next default values for new objects
