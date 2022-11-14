@@ -147,9 +147,16 @@ void CIND17905View::DrawCactus(CDC* pDC)
 
 void CIND17905View::DrawCactusScales(CDC* pDC, int width, int height, bool light)
 {
+	int w = 20;
+	int h = 20;
+	XFORM old;
+	pDC->GetWorldTransform(&old);
+
 	HENHMETAFILE mf = light ? GetEnhMetaFile(L"RESURSI/cactus_part_light.emf") : GetEnhMetaFile(L"RESURSI/cactus_part.emf");
 	pDC->PlayMetaFile(mf, CRect(-width, -height, width, height));
 	DeleteEnhMetaFile(mf);
+
+	pDC->SetWorldTransform(&old);
 }
 
 void CIND17905View::DrawLeftBranch(CDC* pDC)
