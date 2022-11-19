@@ -29,7 +29,7 @@ public:
 
 	void DrawPart(CDC* pDC,int ind, int dX, int dY,double angle, bool blue = false);
 	CBitmap* DrawTransparent(CDC* pDC, CBitmap* image, int width, int height);
-	void MakeImageGrayscale(CBitmap* bitmap, bool blue=false);
+	CBitmap* MakeImageGrayscale(CDC* pDC,int ind, bool blue=false);
 	void MemPdC(CDC* pDC, CRect rect);
 	void DrawGrid(CDC* pDC);
 

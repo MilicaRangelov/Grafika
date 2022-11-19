@@ -111,8 +111,7 @@ void CIND17905View::DrawPart(CDC* pDC,int ind, int dX, int dY,double angle, bool
 
 	int prevMode = SetGraphicsMode(pDC->m_hDC, GM_ADVANCED);
 
-	CBitmap* bmpImage = part[ind].GetBitmap();
-	MakeImageGrayscale(bmpImage, blue);
+	CBitmap* bmpImage = MakeImageGrayscale(pDC,ind, blue);
 
 	// transparency
 	CBitmap* mask = DrawTransparent(pDC, bmpImage, w, h);
@@ -162,10 +161,12 @@ CBitmap* CIND17905View::DrawTransparent(CDC* pDC, CBitmap* image, int width, int
 	return bmpMask;
 }
 
-void CIND17905View::MakeImageGrayscale(CBitmap* bitmap, bool blue)
+CBitmap* CIND17905View::MakeImageGrayscale(CDC*pDC,int ind, bool blue)
 {
 	BITMAP b;
+	CBitmap * bitmap = part[ind].GetBitmap();
 	bitmap->GetBitmap(&b);
+
 	u_char* bits = new u_char[b.bmWidthBytes * b.bmHeight];
 	bitmap->GetBitmapBits(b.bmWidthBytes * b.bmHeight, bits);
 	for (int i = 0; i < b.bmWidthBytes * b.bmHeight; i += 4)
@@ -176,8 +177,12 @@ void CIND17905View::MakeImageGrayscale(CBitmap* bitmap, bool blue)
 		bits[i + 1] = blue? 0 : newPixel;
 		bits[i + 2] = blue? 0 : newPixel;
 	}
-	bitmap->SetBitmapBits(b.bmWidthBytes * b.bmHeight, bits);
+
+	CBitmap* bitImg = new CBitmap();
+	bitImg->CreateCompatibleBitmap(pDC, part[ind].Width() , part[ind].Height());
+	bitImg->SetBitmapBits(b.bmWidthBytes * b.bmHeight, bits);
 	delete[] bits;
+	return bitImg;
 }
 
 void CIND17905View::MemPdC(CDC* pDC, CRect rect)
