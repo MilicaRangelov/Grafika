@@ -30,6 +30,7 @@ BEGIN_MESSAGE_MAP(CIND17905View, CView)
 	ON_WM_CONTEXTMENU()
 	ON_WM_RBUTTONUP()
 	ON_WM_KEYDOWN()
+	ON_WM_ERASEBKGND()
 END_MESSAGE_MAP()
 
 // CIND17905View construction/destruction
@@ -336,4 +337,12 @@ void CIND17905View::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 		Invalidate();
 	}
 	CView::OnKeyDown(nChar, nRepCnt, nFlags);
+}
+
+
+BOOL CIND17905View::OnEraseBkgnd(CDC* pDC)
+{
+	// TODO: Add your message handler code here and/or call default
+
+	return TRUE;
 }
