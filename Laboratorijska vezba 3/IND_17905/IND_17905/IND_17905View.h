@@ -14,6 +14,9 @@ protected: // create from serialization only
 	int angle;
 	CIND17905View() noexcept;
 	DECLARE_DYNCREATE(CIND17905View)
+	int rotation;
+	int mx;
+	int my;
 
 // Attributes
 public:

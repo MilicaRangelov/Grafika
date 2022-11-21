@@ -52,6 +52,9 @@ CIND17905View::CIND17905View() noexcept
 	part[8].Load(CString("res/9.bmp"));
 
 	angle = 0;
+	rotation = 0;
+	mx = 1;
+	my = 1;
 	
 
 }
@@ -223,6 +226,14 @@ void CIND17905View::MemPdC(CDC* pDC, CRect rect)
 	
 	pMemDC->SetGraphicsMode(prevMode);
 
+	int orgmode = pDC->SetGraphicsMode(GM_ADVANCED);
+	Translate(pDC, 250, 250);
+	Rotate(pDC, rotation * PI / 2);
+	Scale(pDC, mx, my);
+	Translate(pDC, -250, -250);
+
+	pDC->SetGraphicsMode(orgmode);
+
 	pDC->BitBlt(0, 0, rect.Width(), rect.Height(), pMemDC, 0, 0, SRCCOPY);
 	pMemDC->DeleteDC();
 	delete pMemDC;
@@ -334,6 +345,18 @@ void CIND17905View::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 	}
 	else if (nChar == 'D') {
 		angle -= 10;
+		Invalidate();
+	}
+	else if (nChar == 'Q') {
+		mx = (-1) * mx;
+		Invalidate();
+	}
+	else if (nChar == 'E') {
+		my = (-1) * my;
+		Invalidate();
+	}
+	else if (nChar == 'R') {
+		rotation = (rotation + 1 )% 4;
 		Invalidate();
 	}
 	CView::OnKeyDown(nChar, nRepCnt, nFlags);
