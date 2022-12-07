@@ -1,16 +1,16 @@
 
-// Klk2015Doc.h : interface of the CKlk2015Doc class
+// Klk_2015_againDoc.h : interface of the CKlk2015againDoc class
 //
 
 
 #pragma once
 
 
-class CKlk2015Doc : public CDocument
+class CKlk2015againDoc : public CDocument
 {
 protected: // create from serialization only
-	CKlk2015Doc() noexcept;
-	DECLARE_DYNCREATE(CKlk2015Doc)
+	CKlk2015againDoc() noexcept;
+	DECLARE_DYNCREATE(CKlk2015againDoc)
 
 // Attributes
 public:
@@ -29,7 +29,7 @@ public:
 
 // Implementation
 public:
-	virtual ~CKlk2015Doc();
+	virtual ~CKlk2015againDoc();
 #ifdef _DEBUG
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;

@@ -1,5 +1,5 @@
 
-// Klk2015Doc.cpp : implementation of the CKlk2015Doc class
+// Klk_2015_againDoc.cpp : implementation of the CKlk2015againDoc class
 //
 
 #include "pch.h"
@@ -7,10 +7,10 @@
 // SHARED_HANDLERS can be defined in an ATL project implementing preview, thumbnail
 // and search filter handlers and allows sharing of document code with that project.
 #ifndef SHARED_HANDLERS
-#include "Klk2015.h"
+#include "Klk_2015_again.h"
 #endif
 
-#include "Klk2015Doc.h"
+#include "Klk_2015_againDoc.h"
 
 #include <propkey.h>
 
@@ -18,27 +18,27 @@
 #define new DEBUG_NEW
 #endif
 
-// CKlk2015Doc
+// CKlk2015againDoc
 
-IMPLEMENT_DYNCREATE(CKlk2015Doc, CDocument)
+IMPLEMENT_DYNCREATE(CKlk2015againDoc, CDocument)
 
-BEGIN_MESSAGE_MAP(CKlk2015Doc, CDocument)
+BEGIN_MESSAGE_MAP(CKlk2015againDoc, CDocument)
 END_MESSAGE_MAP()
 
 
-// CKlk2015Doc construction/destruction
+// CKlk2015againDoc construction/destruction
 
-CKlk2015Doc::CKlk2015Doc() noexcept
+CKlk2015againDoc::CKlk2015againDoc() noexcept
 {
 	// TODO: add one-time construction code here
 
 }
 
-CKlk2015Doc::~CKlk2015Doc()
+CKlk2015againDoc::~CKlk2015againDoc()
 {
 }
 
-BOOL CKlk2015Doc::OnNewDocument()
+BOOL CKlk2015againDoc::OnNewDocument()
 {
 	if (!CDocument::OnNewDocument())
 		return FALSE;
@@ -52,9 +52,9 @@ BOOL CKlk2015Doc::OnNewDocument()
 
 
 
-// CKlk2015Doc serialization
+// CKlk2015againDoc serialization
 
-void CKlk2015Doc::Serialize(CArchive& ar)
+void CKlk2015againDoc::Serialize(CArchive& ar)
 {
 	if (ar.IsStoring())
 	{
@@ -69,7 +69,7 @@ void CKlk2015Doc::Serialize(CArchive& ar)
 #ifdef SHARED_HANDLERS
 
 // Support for thumbnails
-void CKlk2015Doc::OnDrawThumbnail(CDC& dc, LPRECT lprcBounds)
+void CKlk2015againDoc::OnDrawThumbnail(CDC& dc, LPRECT lprcBounds)
 {
 	// Modify this code to draw the document's data
 	dc.FillSolidRect(lprcBounds, RGB(255, 255, 255));
@@ -90,7 +90,7 @@ void CKlk2015Doc::OnDrawThumbnail(CDC& dc, LPRECT lprcBounds)
 }
 
 // Support for Search Handlers
-void CKlk2015Doc::InitializeSearchContent()
+void CKlk2015againDoc::InitializeSearchContent()
 {
 	CString strSearchContent;
 	// Set search contents from document's data.
@@ -100,7 +100,7 @@ void CKlk2015Doc::InitializeSearchContent()
 	SetSearchContent(strSearchContent);
 }
 
-void CKlk2015Doc::SetSearchContent(const CString& value)
+void CKlk2015againDoc::SetSearchContent(const CString& value)
 {
 	if (value.IsEmpty())
 	{
@@ -120,19 +120,19 @@ void CKlk2015Doc::SetSearchContent(const CString& value)
 
 #endif // SHARED_HANDLERS
 
-// CKlk2015Doc diagnostics
+// CKlk2015againDoc diagnostics
 
 #ifdef _DEBUG
-void CKlk2015Doc::AssertValid() const
+void CKlk2015againDoc::AssertValid() const
 {
 	CDocument::AssertValid();
 }
 
-void CKlk2015Doc::Dump(CDumpContext& dc) const
+void CKlk2015againDoc::Dump(CDumpContext& dc) const
 {
 	CDocument::Dump(dc);
 }
 #endif //_DEBUG
 
 
-// CKlk2015Doc commands
+// CKlk2015againDoc commands

@@ -1,37 +1,47 @@
 
-// Klk2015View.h : interface of the CKlk2015View class
+// Klk_2015_againView.h : interface of the CKlk2015againView class
 //
 
 #pragma once
 #include "DImage.h"
-#define _USE_MATH_DEFINES
+#define PI 3.1416
 
-#include <math.h>
-#include <iostream>
-
-
-
-class CKlk2015View : public CView
+class CKlk2015againView : public CView
 {
 protected: // create from serialization only
-	CKlk2015View() noexcept;
-	DECLARE_DYNCREATE(CKlk2015View)
+	CKlk2015againView() noexcept;
+	DECLARE_DYNCREATE(CKlk2015againView)
 
-	bool open;
-	bool left;
-	int position;
-	DImage* background;
+	DImage* bk;
+	int xP;
+	int yP;
+	int rP;
+
+
+	int xG;
+	int yG;
+	int rG;
+
+	int sx;
+	int sy;
+
+	float angle;
+	float rotate;
+
+	bool move;
+
 // Attributes
 public:
-	CKlk2015Doc* GetDocument() const;
+	CKlk2015againDoc* GetDocument() const;
 
 // Operations
 public:
-	
 
-	void Translation(CDC* pDC, double dX, double dY, bool right = false);
-	void Scale(CDC* pDC, double sX, double sY, bool right = false);
-	void DrawPacman(CDC* pDC, CRect rect, float angle);
+	void Translation(CDC* pDC, float dx, float dy, bool right = false);
+	void Rotate(CDC* pDC, float angle, bool right = false);
+	void Scale(CDC* pDC, float sx, float sy, bool right = false);
+
+	void DrawPackman(CDC* pDC, CRect rect, float angle);
 	void DrawGhost(CDC* pDC, CRect rect);
 
 // Overrides
@@ -45,7 +55,7 @@ protected:
 
 // Implementation
 public:
-	virtual ~CKlk2015View();
+	virtual ~CKlk2015againView();
 #ifdef _DEBUG
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;
@@ -64,8 +74,8 @@ public:
 	afx_msg void OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags);
 };
 
-#ifndef _DEBUG  // debug version in Klk2015View.cpp
-inline CKlk2015Doc* CKlk2015View::GetDocument() const
-   { return reinterpret_cast<CKlk2015Doc*>(m_pDocument); }
+#ifndef _DEBUG  // debug version in Klk_2015_againView.cpp
+inline CKlk2015againDoc* CKlk2015againView::GetDocument() const
+   { return reinterpret_cast<CKlk2015againDoc*>(m_pDocument); }
 #endif
 

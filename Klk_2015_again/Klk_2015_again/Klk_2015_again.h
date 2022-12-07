@@ -1,5 +1,5 @@
 
-// Klk2015.h : main header file for the Klk2015 application
+// Klk_2015_again.h : main header file for the Klk_2015_again application
 //
 #pragma once
 
@@ -10,14 +10,14 @@
 #include "resource.h"       // main symbols
 
 
-// CKlk2015App:
-// See Klk2015.cpp for the implementation of this class
+// CKlk2015againApp:
+// See Klk_2015_again.cpp for the implementation of this class
 //
 
-class CKlk2015App : public CWinAppEx
+class CKlk2015againApp : public CWinAppEx
 {
 public:
-	CKlk2015App() noexcept;
+	CKlk2015againApp() noexcept;
 
 
 // Overrides
@@ -36,4 +36,4 @@ public:
 	DECLARE_MESSAGE_MAP()
 };
 
-extern CKlk2015App theApp;
+extern CKlk2015againApp theApp;

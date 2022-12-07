@@ -4,7 +4,7 @@
 
 #include "pch.h"
 #include "framework.h"
-#include "Klk2015.h"
+#include "Klk_2015_again.h"
 
 #include "MainFrm.h"
 
@@ -24,7 +24,6 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWndEx)
 	ON_WM_CREATE()
 	ON_COMMAND(ID_VIEW_CUSTOMIZE, &CMainFrame::OnViewCustomize)
 	ON_REGISTERED_MESSAGE(AFX_WM_CREATETOOLBAR, &CMainFrame::OnToolbarCreateNew)
-	ON_WM_KEYDOWN()
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -226,11 +225,3 @@ BOOL CMainFrame::LoadFrame(UINT nIDResource, DWORD dwDefaultStyle, CWnd* pParent
 	return TRUE;
 }
 
-
-
-void CMainFrame::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
-{
-	// TODO: Add your message handler code here and/or call default
-
-	CFrameWndEx::OnKeyDown(nChar, nRepCnt, nFlags);
-}

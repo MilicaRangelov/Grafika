@@ -1,26 +1,26 @@
 
-// Klk2015.cpp : Defines the class behaviors for the application.
+// Klk_2015_again.cpp : Defines the class behaviors for the application.
 //
 
 #include "pch.h"
 #include "framework.h"
 #include "afxwinappex.h"
 #include "afxdialogex.h"
-#include "Klk2015.h"
+#include "Klk_2015_again.h"
 #include "MainFrm.h"
 
-#include "Klk2015Doc.h"
-#include "Klk2015View.h"
+#include "Klk_2015_againDoc.h"
+#include "Klk_2015_againView.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
 
 
-// CKlk2015App
+// CKlk2015againApp
 
-BEGIN_MESSAGE_MAP(CKlk2015App, CWinAppEx)
-	ON_COMMAND(ID_APP_ABOUT, &CKlk2015App::OnAppAbout)
+BEGIN_MESSAGE_MAP(CKlk2015againApp, CWinAppEx)
+	ON_COMMAND(ID_APP_ABOUT, &CKlk2015againApp::OnAppAbout)
 	// Standard file based document commands
 	ON_COMMAND(ID_FILE_NEW, &CWinAppEx::OnFileNew)
 	ON_COMMAND(ID_FILE_OPEN, &CWinAppEx::OnFileOpen)
@@ -29,9 +29,9 @@ BEGIN_MESSAGE_MAP(CKlk2015App, CWinAppEx)
 END_MESSAGE_MAP()
 
 
-// CKlk2015App construction
+// CKlk2015againApp construction
 
-CKlk2015App::CKlk2015App() noexcept
+CKlk2015againApp::CKlk2015againApp() noexcept
 {
 	m_bHiColorIcons = TRUE;
 
@@ -47,20 +47,20 @@ CKlk2015App::CKlk2015App() noexcept
 
 	// TODO: replace application ID string below with unique ID string; recommended
 	// format for string is CompanyName.ProductName.SubProduct.VersionInformation
-	SetAppID(_T("Klk2015.AppID.NoVersion"));
+	SetAppID(_T("Klk2015again.AppID.NoVersion"));
 
 	// TODO: add construction code here,
 	// Place all significant initialization in InitInstance
 }
 
-// The one and only CKlk2015App object
+// The one and only CKlk2015againApp object
 
-CKlk2015App theApp;
+CKlk2015againApp theApp;
 
 
-// CKlk2015App initialization
+// CKlk2015againApp initialization
 
-BOOL CKlk2015App::InitInstance()
+BOOL CKlk2015againApp::InitInstance()
 {
 	// InitCommonControlsEx() is required on Windows XP if an application
 	// manifest specifies use of ComCtl32.dll version 6 or later to enable
@@ -115,9 +115,9 @@ BOOL CKlk2015App::InitInstance()
 	CSingleDocTemplate* pDocTemplate;
 	pDocTemplate = new CSingleDocTemplate(
 		IDR_MAINFRAME,
-		RUNTIME_CLASS(CKlk2015Doc),
+		RUNTIME_CLASS(CKlk2015againDoc),
 		RUNTIME_CLASS(CMainFrame),       // main SDI frame window
-		RUNTIME_CLASS(CKlk2015View));
+		RUNTIME_CLASS(CKlk2015againView));
 	if (!pDocTemplate)
 		return FALSE;
 	AddDocTemplate(pDocTemplate);
@@ -140,7 +140,7 @@ BOOL CKlk2015App::InitInstance()
 	return TRUE;
 }
 
-int CKlk2015App::ExitInstance()
+int CKlk2015againApp::ExitInstance()
 {
 	//TODO: handle additional resources you may have added
 	AfxOleTerm(FALSE);
@@ -148,7 +148,7 @@ int CKlk2015App::ExitInstance()
 	return CWinAppEx::ExitInstance();
 }
 
-// CKlk2015App message handlers
+// CKlk2015againApp message handlers
 
 
 // CAboutDlg dialog used for App About
@@ -184,15 +184,15 @@ BEGIN_MESSAGE_MAP(CAboutDlg, CDialogEx)
 END_MESSAGE_MAP()
 
 // App command to run the dialog
-void CKlk2015App::OnAppAbout()
+void CKlk2015againApp::OnAppAbout()
 {
 	CAboutDlg aboutDlg;
 	aboutDlg.DoModal();
 }
 
-// CKlk2015App customization load/save methods
+// CKlk2015againApp customization load/save methods
 
-void CKlk2015App::PreLoadState()
+void CKlk2015againApp::PreLoadState()
 {
 	BOOL bNameValid;
 	CString strName;
@@ -201,15 +201,15 @@ void CKlk2015App::PreLoadState()
 	GetContextMenuManager()->AddMenu(strName, IDR_POPUP_EDIT);
 }
 
-void CKlk2015App::LoadCustomState()
+void CKlk2015againApp::LoadCustomState()
 {
 }
 
-void CKlk2015App::SaveCustomState()
+void CKlk2015againApp::SaveCustomState()
 {
 }
 
-// CKlk2015App message handlers
+// CKlk2015againApp message handlers
 
 
 

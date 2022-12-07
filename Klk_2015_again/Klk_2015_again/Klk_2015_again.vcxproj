@@ -20,9 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{022B24D3-6BC5-4414-AFDA-B48FC8D0007A}</ProjectGuid>
+    <ProjectGuid>{147AADB7-D820-4654-A6ED-28C2572C5480}</ProjectGuid>
     <Keyword>MFCProj</Keyword>
-    <RootNamespace>Klk2015</RootNamespace>
+    <RootNamespace>Klk2015again</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -185,9 +185,9 @@
   <ItemGroup>
     <ClInclude Include="DImage.h" />
     <ClInclude Include="framework.h" />
-    <ClInclude Include="Klk2015.h" />
-    <ClInclude Include="Klk2015Doc.h" />
-    <ClInclude Include="Klk2015View.h" />
+    <ClInclude Include="Klk_2015_again.h" />
+    <ClInclude Include="Klk_2015_againDoc.h" />
+    <ClInclude Include="Klk_2015_againView.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Resource.h" />
@@ -195,9 +195,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DImage.cpp" />
-    <ClCompile Include="Klk2015.cpp" />
-    <ClCompile Include="Klk2015Doc.cpp" />
-    <ClCompile Include="Klk2015View.cpp" />
+    <ClCompile Include="Klk_2015_again.cpp" />
+    <ClCompile Include="Klk_2015_againDoc.cpp" />
+    <ClCompile Include="Klk_2015_againView.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -207,17 +207,17 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="Klk2015.rc" />
+    <ResourceCompile Include="Klk2015again.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="res\Klk2015.ico" />
-    <Image Include="res\Klk2015Doc.ico" />
+    <Image Include="res\Klk_2015_again.ico" />
+    <Image Include="res\Klk_2015_againDoc.ico" />
     <Image Include="res\Toolbar.bmp" />
     <Image Include="res\Toolbar256.bmp" />
     <Image Include="res\userimages.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\Klk2015.rc2" />
+    <None Include="res\Klk2015again.rc2" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
